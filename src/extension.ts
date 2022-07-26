@@ -64,6 +64,7 @@ function resolveCompletionItem(item:vscode.CompletionItem, token:vscode.Cancella
 
 function provideHover(document:vscode.TextDocument,position:vscode.Position,token:vscode.CancellationToken):vscode.ProviderResult<vscode.Hover>{
 	console.log('====== 进入 provideHover 方法 ======');
+  console.log('testsssssssssssssss')
 	const fileName	= document.fileName;
 	const workspaceRoot = (vscode.workspace.workspaceFolders && (vscode.workspace.workspaceFolders.length > 0))
 	? vscode.workspace.workspaceFolders[0].uri.fsPath : undefined;
@@ -80,7 +81,7 @@ function provideHover(document:vscode.TextDocument,position:vscode.Position,toke
 	}
 	return;
 }
-
+//test
 
 // this method is called when your extension is deactivated
 export function deactivate() {}

@@ -47,7 +47,7 @@ function provideCompletionItems(document:vscode.TextDocument,position:vscode.Pos
 	if(/this\.$/.test(lineText)){
 		if(workspaceRoot){
 			const json=require(path.join(workspaceRoot,'test.json'));
-			const data=Object.keys(json)
+			const data=Object.keys(json);
 			return data.map(item=>{
 				return new vscode.CompletionItem(item, vscode.CompletionItemKind.Field);
 			});
@@ -64,7 +64,7 @@ function resolveCompletionItem(item:vscode.CompletionItem, token:vscode.Cancella
 
 function provideHover(document:vscode.TextDocument,position:vscode.Position,token:vscode.CancellationToken):vscode.ProviderResult<vscode.Hover>{
 	console.log('====== 进入 provideHover 方法 ======');
-  console.log('testsssssssssssssss')
+  console.log('testsssssssssssssss');
 	const fileName	= document.fileName;
 	const workspaceRoot = (vscode.workspace.workspaceFolders && (vscode.workspace.workspaceFolders.length > 0))
 	? vscode.workspace.workspaceFolders[0].uri.fsPath : undefined;
@@ -75,9 +75,7 @@ function provideHover(document:vscode.TextDocument,position:vscode.Position,toke
 				const content=require(path.join(workspaceRoot,'test.json'));
 				return new vscode.Hover(`* **参数aa**：${content.aa}\n* **参数bb**：${content.bb}\n* **参数cc**：${content.cc}\n **参数dd**：${content.dd}* `);
 			}
-			
 		}
-
 	}
 	return;
 }
